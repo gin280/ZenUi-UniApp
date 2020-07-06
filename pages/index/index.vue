@@ -1,8 +1,11 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+	<view>
+		<zen-custom bgColor="bg-pink-500" :isBack="true"><block slot="backText">返回</block><block slot="content">图标</block></zen-custom>
+		<view class="content">
+			<image class="logo" src="/static/logo.png"></image>
+			<view class="text-area">
+				<text class="title">{{title}}</text>
+			</view>
 		</view>
 	</view>
 </template>
