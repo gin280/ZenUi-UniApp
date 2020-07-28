@@ -1,16 +1,16 @@
 <template>
-	<view class="tui-tabs-view" :class="[isFixed?'tui-tabs-fixed':'tui-tabs-relative',unlined?'tui-unlined':'']" :style="{height:height+'rpx',padding:`0 ${padding}rpx`,background:backgroundColor,top:isFixed?top+'px':'auto'}">
-		<view v-for="(item,index) in tabs" :key="index" class="tui-tabs-item" :style="{width:itemWidth}" @tap.stop="swichTabs(index)">
-			<view class="tui-tabs-title" :class="{'tui-tabs-active':currentTab==index,'tui-tabs-disabled':item.disabled}" :style="{color:currentTab==index?selectedColor:color,fontSize:size+'rpx',lineHeight:size+'rpx',fontWeight:bold && currentTab==index?'bold':'normal'}">{{item.name}}</view>
-		</view>
-		<view class="tui-tabs-slider" :style="{transform:'translateX('+scrollLeft+'px)',width:sliderWidth+'rpx',height:
+	<view class="zen-tabs-view tui-tabs-view w-full box-border flex items-center justify-between" :class="[isFixed?'fixed left-0':'relative',unlined?'tui-unlined':'']" :style="{height:height+'rpx',padding:`0 ${padding}rpx`,background:backgroundColor,top:isFixed?top+'px':'auto'}">
+		<view v-for="(item,index) in tabs" :key="index" class="flex items-center justify-center" :style="{width:itemWidth}" @tap.stop="swichTabs(index)">
+			<view class="flex items-center justify-between relative z-10" :class="{'transition-all duration-150 ease-in-out':currentTab==index,'text-opacity-50':item.disabled}" :style="{color:currentTab==index?selectedColor:color,fontSize:size+'rpx',lineHeight:size+'rpx',fontWeight:bold && currentTab==index?'bold':'normal'}">{{item.name}}</view>
+		</view> 
+		<view class="z-0 absolute left-0 transition-all duration-150 ease-in-out " :style="{transform:'translateX('+scrollLeft+'px)',width:sliderWidth+'rpx',height:
 	sliderHeight+'rpx',borderRadius:sliderRadius,bottom:bottom,background:sliderBgColor,marginBottom:bottom=='50%'?('-'+sliderHeight/2+'rpx'):0}"></view>
 	</view>
-</template>
+</template> 
 
 <script>
 	export default {
-		name: "tuiTabs",
+		name: "zenTabs",
 		props: {
 			//标签页
 			tabs: {
@@ -165,68 +165,7 @@
 </script>
 
 <style scoped>
-	.tui-tabs-view {
-		width: 100%;
-		box-sizing: border-box;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		z-index: 9999;
-	}
-
-	.tui-tabs-relative {
-		position: relative;
-	}
-
-	.tui-tabs-fixed {
-		position: fixed;
-		left: 0;
-	}
-
-	.tui-tabs-fixed::before,
-	.tui-tabs-relative::before {
-		content: '';
-		position: absolute;
-		border-bottom: 1rpx solid #eaeef1;
-		-webkit-transform: scaleY(0.5) translateZ(0);
-		transform: scaleY(0.5) translateZ(0);
-		transform-origin: 0 100%;
-		bottom: 0;
-		right: 0;
-		left: 0;
-	}
-
-	.tui-unlined::before {
-		border-bottom: 0 !important
-	}
-
-	.tui-tabs-item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.tui-tabs-disabled {
-		opacity: .6;
-	}
-
-	.tui-tabs-title {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		z-index: 2;
-	}
-
-	.tui-tabs-active {
-		transition: all 0.15s ease-in-out;
-	}
-
-	.tui-tabs-slider {
-		position: absolute;
-		left: 0;
-		transition: all 0.15s ease-in-out;
-		z-index: 0;
-		transform: translateZ(0);
+	.zen-tabs-view {
+		z-index: 9999; 
 	}
 </style>

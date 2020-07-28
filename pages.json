@@ -16,6 +16,10 @@
     {
     	"path": "pages/demo/tabs/tabs",
     	"style": {}
+	},
+	{
+    	"path": "pages/demo/footer/footer",
+    	"style": {}
     }
 	],
 	"easycom": {
