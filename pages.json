@@ -21,7 +21,43 @@
     	"path": "pages/demo/footer/footer",
     	"style": {}
     }
-	],
+	    ,{
+            "path" : "pages/index/basic/basic",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/color/color",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/button/button",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/badge/badge",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/tag/tag",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/loading/loading",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/selectCity/selectCity",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/nvabar/nvabar",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/classify/classify",
+            "style" : {}
+        }
+    ],
 	"easycom": {
 		"autoscan": true,
 		"custom": {
