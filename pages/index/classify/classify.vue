@@ -1,10 +1,11 @@
 <template>
-	<view class="container">
-		<zen-custom bgColor='bg-blue-200' :isBack="true">
+<view>
+	<zen-custom bgColor='bg-blue-200' :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">垂直分类联动</block>
 		</zen-custom>
-		<view class="zen-searchbox">
+	<view style="margin-top:70px;" class="container">
+		<view  class="zen-searchbox">
 			<view class="zen-search-input" @tap="search">
 				<icon type="search" :size="13" color="#999"></icon>
 				<text class="zen-search-text">搜索Thorui商品</text>
@@ -73,6 +74,7 @@
 			<!--内容部分 end 自定义可删除-->
 		</scroll-view>
 	</view>
+</view>
 </template>
 
 <script>
