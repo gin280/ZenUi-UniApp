@@ -1,7 +1,7 @@
 <template>
-	<view class="zen-loadmore">
+	<view class="w-1-2 mx-auto my-2 text-sm text-center">
 		<view :class="['zen-loading-'+index, (index==3 && type)?'zen-loading-'+type:'']"></view>
-		<view class="zen-loadmore-tips">{{text}}</view>
+		<view class="inline-block align-middle">{{text}}</view>
 	</view>
 </template>
 
@@ -29,13 +29,7 @@
 </script>
 
 <style scoped>
-	.zen-loadmore {
-		width: 48%;
-		margin: 1.5em auto;
-		line-height: 1.5em;
-		font-size: 24rpx;
-		text-align: center;
-	}
+	
 
 	.zen-loading-1 {
 		margin: 0 5px;
@@ -71,11 +65,6 @@
 			-webkit-transform: rotate(1turn);
 			transform: rotate(1turn);
 		}
-	}
-
-	.zen-loadmore-tips {
-		display: inline-block;
-		vertical-align: middle;
 	}
 
 	.zen-loading-2 {

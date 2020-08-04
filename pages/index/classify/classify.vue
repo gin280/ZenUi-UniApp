@@ -1,22 +1,15 @@
 <template>
 <view>
 	<zen-custom bgColor='bg-blue-200' :isBack="true">
-			<block slot="backText">返回</block>
-			<block slot="content">垂直分类联动</block>
-		</zen-custom>
-	<view style="margin-top:70px;" class="container">
-		<view  class="zen-searchbox">
-			<view class="zen-search-input" @tap="search">
-				<icon type="search" :size="13" color="#999"></icon>
-				<text class="zen-search-text">搜索Thorui商品</text>
-			</view>
-		</view>
-
+		<block slot="backText">返回</block>
+		<block slot="content">垂直分类联动</block>
+	</zen-custom>
+	<view class="container">
 		<scroll-view
 			scroll-y
 			:scroll-with-animation="isTap"
 			scroll-anchoring
-			class="tab-view"
+			class="w-1-4 fixed left-0 z-10"
 			:scroll-into-view="scrollView_leftId"
 			:style="{ height: height + 'px', top: top + 'px' }"
 		>
@@ -24,8 +17,9 @@
 				:id="`left_${index}`"
 				v-for="(item, index) in tabbar"
 				:key="index"
-				class="tab-bar-item"
-				:class="[currentTab == index ? 'active' : '']"
+				style="height: 110rpx;"
+				class="w-full bg-blue-400 box-sizing flex items-center justify-center text-sm text-black-600 font-extrabold"
+				:class="[currentTab == index ? ['active', 'relative', 'text-black-900', 'text-base', 'font-medium', 'bg-pink-200'] : '']"
 				:data-current="index"
 				@tap.stop="swichNav"
 			>
@@ -37,10 +31,10 @@
 			scroll-anchoring
 			scroll-y
 			scroll-with-animation
-			class="right-box"
+			class="w-full fixed pl-24 box-sizing left-0"
 			:scroll-into-view="scrollView_rightId"
 			:style="{ height: height + 'px', top: top + 'px' }"
-		>
+		> 
 			<!--内容部分 start 自定义可删除-->
 			<block v-for="(item, index) in tabbar" :key="index">
 				<t-linkage :distanceTop="distanceTop" :recalc="1" :scrollTop="scrollTop" :index="index" @linkage="linkage">
@@ -146,6 +140,7 @@ export default {
 			if (!isScroll) {
 				this.isScroll = false;
 				this.isTap = true;
+				console.info(this.currentTab, 'currentTab')
 				if (this.currentTab > 6) {
 					this.scrollView_leftId = `left_${this.currentTab - 2}`;
 				} else {
@@ -193,82 +188,6 @@ page {
 	background-color: #fcfcfc;
 }
 
-/* 左侧导航布局 start*/
-
-.zen-searchbox {
-	width: 100%;
-	height: 92rpx;
-	padding: 0 30rpx;
-	box-sizing: border-box;
-	background-color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	left: 0;
-	top: 0;
-	/* #ifdef H5 */
-	top: 44px;
-	/* #endif */
-	z-index: 100;
-}
-
-.zen-searchbox::after {
-	content: '';
-	position: absolute;
-	border-bottom: 1rpx solid #d2d2d2;
-	-webkit-transform: scaleY(0.5);
-	transform: scaleY(0.5);
-	bottom: 0;
-	right: 0;
-	left: 0;
-}
-
-.zen-search-input {
-	width: 100%;
-	height: 60rpx;
-	background: #f1f1f1;
-	border-radius: 30rpx;
-	font-size: 26rpx;
-	color: #999;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.zen-search-text {
-	padding-left: 16rpx;
-}
-
-.tab-view {
-	/* height: 100%; */
-	width: 200rpx;
-	position: fixed;
-	left: 0;
-	z-index: 10;
-}
-
-.tab-bar-item {
-	width: 200rpx;
-	height: 110rpx;
-	background: #f6f6f6;
-	box-sizing: border-box;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 26rpx;
-	color: #444;
-	font-weight: 400;
-}
-
-.active {
-	position: relative;
-	color: #000;
-	font-size: 30rpx;
-	font-weight: 600;
-	background: #fcfcfc;
-}
-
 .active::before {
 	content: '';
 	position: absolute;
@@ -279,13 +198,7 @@ page {
 
 /* 左侧导航布局 end*/
 
-.right-box {
-	width: 100%;
-	position: fixed;
-	padding-left: 220rpx;
-	box-sizing: border-box;
-	left: 0;
-}
+
 
 .page-view {
 	width: 100%;

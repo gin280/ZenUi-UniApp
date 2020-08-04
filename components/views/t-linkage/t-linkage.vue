@@ -27,6 +27,7 @@ export default {
 	},
 	watch: {
 		scrollTop(newValue, oldValue) {
+			console.info(newValue, 'newValue')
 			if (this.initialize != 0) {
 				this.updateScrollChange(() => {
 					this.updateStickyChange();

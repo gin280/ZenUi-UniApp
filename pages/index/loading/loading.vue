@@ -7,10 +7,10 @@
       <block slot="backText">返回</block>
       <block slot="content">Loading</block>
     </zen-custom>
-	<view class="container">
-		<view class="zen-header">
-			<view class="zen-title">Loading</view>
-			<view class="zen-sub-title">加载中...</view>
+	<view class="pt-2 pr-3 pb-4 pl-3 box-sizing">
+		<view class="pt-8 pr-6 pb-5 pl-6">
+			<view >Loading</view>
+			<view>加载中...</view>
 		</view>
 
 		<!--正在加载 start-->
@@ -57,20 +57,7 @@ export default {
 </script>
 
 <style lang="less">
-.container {
-  padding: 20rpx 30rpx 40rpx 30rpx;
-  box-sizing: border-box;
-}
 
-.zen-header {
-  padding: 80rpx 60rpx 50rpx 60rpx;
-}
-
-.zen-title {
-  font-size: 36rpx;
-  color: #333;
-  font-weight: bold;
-}
 
 .zen-sub-title {
   font-size: 28rpx;
